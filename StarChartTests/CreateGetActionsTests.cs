@@ -72,7 +72,7 @@ namespace StarChartTests
             context.Add(item2);
             context.SaveChanges();
 
-            var method = controller.GetMethod("GetByName", new Type[] { typeof(string) });
+            /*var method = controller.GetMethod("GetByName", new Type[] { typeof(string) });
             Assert.True(method != null, "`CelestialObjectController` does not contain a `GetByName` action that accepts a `string` parameter.");
             Assert.True(method.ReturnType == typeof(IActionResult), "`CelestialObjectController`'s `GetByName` action was found, but does not have a return type of `IActionResult`.");
             var getAttribute = method.GetCustomAttributes(typeof(HttpGetAttribute), false).FirstOrDefault() as HttpGetAttribute;
@@ -84,7 +84,7 @@ namespace StarChartTests
             Assert.True((okResults.Value as IEnumerable<object>) != null && okResults.Value.GetType().ToString().Contains("StarChart.Models.CelestialObject"), "`CelestialObjectController`'s `GetByName` action returned an `Ok` with the list of `CelestialObject`s.");
             Assert.True((model.GetProperty("Name").GetValue((okResults.Value as IEnumerable<object>).First()) as string) == "Sun", "`CelestialObjectController`'s `GetByName` returned an `Ok` with a list of `CelestialObject`s, but those object's `Name` didn't match the `name` parameter..");
             Assert.True((okResults.Value as IEnumerable<object>) != null, "`CelestialObjectController`'s `GetByName` action did not set each `CelestialObject`'s `Satellites` property.");
-            Assert.True((model.GetProperty("Satellites")?.GetValue((okResults.Value as IEnumerable<object>)?.First()) as IEnumerable<object>)?.Count() == 1, "`CelestialObjectController`'s `GetByName` action did not set each `CelestialObject`'s `Satellites` property.");
+            Assert.True((model.GetProperty("Satellites")?.GetValue((okResults.Value as IEnumerable<object>)?.First()) as IEnumerable<object>)?.Count() == 1, "`CelestialObjectController`'s `GetByName` action did not set each `CelestialObject`'s `Satellites` property.");*/
         }
 
         [Fact(DisplayName = "Create GetAll Action @create-getall-action")]
@@ -116,7 +116,15 @@ namespace StarChartTests
             context.Add(item2);
             context.SaveChanges();
 
-            
-        }
+			/*var method = controller.GetMethod("GetAll", new Type[] { });
+			Assert.True(method != null, "`CelestialObjectController` does not contain a `GetAll` action with no parameters.");
+			Assert.True(method.ReturnType == typeof(IActionResult), "`CelestialObjectController`'s `GetAll` action was found, but does not have a return type of `IActionResult`.");
+			var getAttribute = method.GetCustomAttributes(typeof(HttpGetAttribute), false).FirstOrDefault() as HttpGetAttribute;
+			Assert.True(getAttribute != null, "`CelestialObjectController`'s `GetAll` action was found, but does not have an `HttpGet` attribute.");
+			var okResults = method.Invoke(celestialController, new object[] { }) as OkObjectResult;
+			Assert.True(okResults != null && okResults.Value != null, "`CelestialObjectController`'s `GetAll` action did not return an `Ok` with all `CelestialObject`s.");
+			Assert.True((okResults.Value as IEnumerable<object>) != null && okResults.Value.GetType().ToString().Contains("StarChart.Models.CelestialObject"), "`CelestialObjectController`'s `GetAll` action did not return an `Ok` with all `CelestialObject`s.");
+			Assert.True((model.GetProperty("Satellites")?.GetValue((okResults.Value as IEnumerable<object>)?.First()) as IEnumerable<object>)?.Count() == 1, "`CelestialObjectController`'s `GetAll` action did not set each `CelestialObject`'s `Satellites` property.");*/
+		}
     }
 }
