@@ -82,7 +82,7 @@ namespace StarChart.Controllers
 			_context.CelestialObjects.RemoveRange(celestialObjects);
 			_context.SaveChanges();
 			return NoContent();
-		}
+		}*/
 
 		[HttpPut("{id}")]
 		public IActionResult Update(int id, CelestialObject celestialObject)
@@ -92,11 +92,11 @@ namespace StarChart.Controllers
 				return NotFound();
 			existingObject.Name = celestialObject.Name;
 			existingObject.OrbitalPeriod = celestialObject.OrbitalPeriod;
-			existingObject.OrbitedObject = celestialObject.OrbitedObject;
+			existingObject.OrbitedObjectId = celestialObject.OrbitedObjectId;
 			_context.CelestialObjects.Update(existingObject);
 			_context.SaveChanges();
 			return NoContent();
-		}*/
+		}
 
 		}
 
